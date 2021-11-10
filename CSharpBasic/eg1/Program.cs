@@ -6,7 +6,7 @@ namespace eg1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Kteam");
             Console.ReadKey();
         }
     }
