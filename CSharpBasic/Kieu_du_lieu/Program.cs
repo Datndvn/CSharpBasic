@@ -6,15 +6,15 @@ namespace Kieu_du_lieu
     {
         static void Main(string[] args)
         {
-            byte Bienbyte = 10;
-            short Bienshort = 10;
-            int Bienint = 10;
-            long Bienlong = 10;
-            float Bienfloat = 11.9f;
-            double Biendouble = 11.9;
-            decimal Biendecimal = 11.9m;
-            char Bienchar = 'M';
-            string Bienstring = "Hello";
+            byte = 10;
+            short = 10;
+            int = 10;
+            long = 10;
+            float = 11.9f;
+            double = 11.9;
+            decimal = 11.9m;
+            char = 'M';
+            string = "Hello";
             Console.ReadKey();
         }
     }
