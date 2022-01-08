@@ -1,39 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-namespace testbai2
+
+namespace baitap2class
 {
     class PhanSo
     {
-        #region field
-        protected Int32 ts;
-        protected Int32 ms;
-        #endregion
-
-        #region property
-
-        /// Trả về giá trị tử số của phân số
-        public Int32 TuSo {
-            get { return ts; }
-        }
-        /// Trả về giá trị mẫu số của phân số
-        public Int32 MauSo {
-            get { return ms; }
-        }
-        /// Phương thức Khử mẫu âm
-        protected void validate()
-        {
-            if (ms < 0)
-            {
-                /// ts *= -1;
-                // ms *= -1;
-                ts = ts * (-1);
-                ms = ms * (-1);
-            }
-
-            
-            else return;
-        }
-        /// Phương thức Nhập 1 phân số. Cho nhập lại nếu mẫu số = 0;
+        public int ts;
+        public int ms;
         public void NhapPhanSo()
         {
             Console.Write("Tu = ");
@@ -43,9 +19,10 @@ namespace testbai2
                 Console.Write("Mau = ");
                 ms = Convert.ToInt32(Console.ReadLine());
             } while (ms == 0);
-            validate();
+           
         }
-        /// Phương thức hiển thị 1 phân số. Chỉ hiển thị tử số nếu mẫu số = 1
+        /// Phương thức hiển thị tử số nếu mẫu số = 1
+        
         public void HienThi()
         {
             if (ms == 1)
@@ -54,25 +31,29 @@ namespace testbai2
                 Console.Write(ts + "/" + ms);
         }
         /// Phương thức tìm UCLN của 1 phân số
-        public Int32 ucln(Int32 a, Int32 b)
+        public int ucln(int a, int b)
         {
             while (a > 0 && b > 0)
             {
                 if (a >= b)
-                    a -= b;
+                { a -= b; }
                 else
-                    b -= a;
+                { b -= a; }
             }
             return a + b;
         }
-        /// Phương thức Rút gọn 1 phân số
+        /// Phương thức ruts gon
         public void RutGon()
         {
-            Int32 c = ucln(Math.Abs(ts), Math.Abs(ms));
-            ts = ts / c;
-            ms = ms / c;
+            int c = ucln(Math.Abs(ts), Math.Abs(ms));
+            while(c != 0) 
+            {
+                ts = ts / c;
+                ms = ms / c;
+            }
+
+            
         }
-        /// Phương thức cộng 2 phân số
         public static PhanSo Cong(PhanSo A, PhanSo B)
         {
             PhanSo C = new PhanSo();
@@ -81,7 +62,9 @@ namespace testbai2
             C.RutGon();
             return C;
         }
+        
         /// Phương thức trừ 2 phân số
+        
         public static PhanSo Tru(PhanSo A, PhanSo B)
         {
             PhanSo C = new PhanSo();
@@ -90,7 +73,9 @@ namespace testbai2
             C.RutGon();
             return C;
         }
+        
         /// Phương thức nhân 2 phân số
+        
         public static PhanSo Nhan(PhanSo A, PhanSo B)
         {
             PhanSo C = new PhanSo();
@@ -99,7 +84,9 @@ namespace testbai2
             C.RutGon();
             return C;
         }
+        
         /// Phương thức chia 2 phân số
+        
         public static PhanSo Chia(PhanSo A, PhanSo B)
         {
             PhanSo C = new PhanSo();
@@ -108,18 +95,15 @@ namespace testbai2
             C.RutGon();
             return C;
         }
-
-        #endregion
-
     }
-
+        
     class Program
     {
         static void Xuat(PhanSo ps)
         {
-            Console.WriteLine("Tu so :  " + ps.TuSo);
-            Console.WriteLine("Mau so : " + ps.MauSo);
-            Console.WriteLine("UCLN : " + ps.ucln(ps.TuSo, ps.MauSo));
+            Console.WriteLine("Tu so :  " + ps.ts);
+            Console.WriteLine("Mau so : " + ps.ms);
+            Console.WriteLine("UCLN : " + ps.ucln(ps.ts, ps.ms));
             Console.Write("Phan so "); ps.HienThi();
             ps.RutGon();
             Console.Write(" duoc rut gon thanh "); ps.HienThi();
@@ -127,19 +111,20 @@ namespace testbai2
         }
         static void Main(string[] args)
         {
+            PhanSo macdinh = new PhanSo();
             PhanSo ps1 = new PhanSo();
             PhanSo ps2 = new PhanSo();
             PhanSo ps3 = new PhanSo();
 
             //Thay đổi phân số 1 và phân số 2
-            Console.WriteLine("Nhap phan so thu 1: ");
+            Console.WriteLine("Nhap phan so thu 1 ");
             ps1.NhapPhanSo();
-            Console.WriteLine("Nhap phan so thu 2: ");
+            Console.WriteLine("Nhap phan so thu 2 ");
             ps2.NhapPhanSo();
             Console.Clear();
 
             //Xuất ra màn hình phân số mặc định, phân số 1 và 2
-            
+            Xuat(ps3);
             Xuat(ps1);
             Xuat(ps2);
 
