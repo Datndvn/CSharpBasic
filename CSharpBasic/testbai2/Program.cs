@@ -131,7 +131,7 @@ namespace testbai2
             PhanSo ps2 = new PhanSo();
             PhanSo ps3 = new PhanSo();
 
-            //Thay đổi phân số 1 và phân số 2
+            
             Console.WriteLine("Nhap phan so thu 1: ");
             ps1.NhapPhanSo();
             Console.WriteLine("Nhap phan so thu 2: ");
